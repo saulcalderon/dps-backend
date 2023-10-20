@@ -7,6 +7,8 @@
 
 ## Installation
 
+Node version: v18.8.0 or greater
+
 ```bash
 $ npm install
 ```
