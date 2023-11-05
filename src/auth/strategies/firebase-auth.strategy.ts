@@ -16,7 +16,7 @@ export class FirebaseAuthStrategy extends PassportStrategy(
 
   validate(payload: any) {
     const user = {
-      userId: payload.user_id,
+      uid: payload.user_id,
       email: payload.email,
     };
 
