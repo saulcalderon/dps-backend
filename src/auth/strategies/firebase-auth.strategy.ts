@@ -10,7 +10,9 @@ export class FirebaseAuthStrategy extends PassportStrategy(
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: process.env.FIREBASE_PUBLIC_CERTIFICATE,
+      secretOrKey: process.env.FIREBASE_PUBLIC_CERTIFICATE
+        ? process.env.FIREBASE_PUBLIC_CERTIFICATE.replace(/\\n/g, '\n')
+        : undefined,
     });
   }
 
