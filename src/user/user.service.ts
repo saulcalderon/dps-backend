@@ -1,4 +1,4 @@
-import { Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { FirebaseService } from 'src/auth/services/firebase.service';
 import { CreateUserDto } from './dto/create-user.dto';
 
@@ -15,7 +15,7 @@ export class UserService {
   async create(createUserDto: CreateUserDto): Promise<void> {
     const userExists = await this.verifyUserExists(createUserDto.email);
     if (userExists) {
-      throw new UnprocessableEntityException('User already exists');
+      throw new ConflictException('User already exists');
     }
 
     const auth = this.firebaseService.getFirebaseApp().auth();
