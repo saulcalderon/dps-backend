@@ -8,24 +8,20 @@ export const validationSchema = Joi.object({
     'number.base': 'PORT environment variable must be a number.',
     'number.port': 'PORT environment variable must be a valid port',
   }),
-  DB_PORT: Joi.number().required().messages({
-    'number.required':
-      'DB_PORT environment variable is not specified and it is required',
-  }),
-  DB_HOST: Joi.string().required().messages({
+  FIREBASE_PUBLIC_CERTIFICATE: Joi.string().required().messages({
     'string.required':
-      'DB_HOST environment variable is not specified and it is required',
+      'FIREBASE_PUBLIC_CERTIFICATE environment variable is not specified and it is required',
   }),
-  DB_NAME: Joi.string().required().messages({
+  FIREBASE_PRIVATE_KEY: Joi.string().required().messages({
     'string.required':
-      'No DB_NAME environment variable specified and it is required',
+      'FIREBASE_PRIVATE_KEY environment variable is not specified and it is required',
   }),
-  DB_USER: Joi.string().required().messages({
+  FIREBASE_CLIENT_EMAIL: Joi.string().required().messages({
     'string.required':
-      'DB_USER environment variable is not specified and it is required',
+      'FIREBASE_CLIENT_EMAIL environment variable is not specified and it is required',
   }),
-  DB_PASSWORD: Joi.string().required().messages({
+  FIREBASE_PROJECT_ID: Joi.string().required().messages({
     'string.required':
-      'DB_PASSWORD environment variable is not specified and it is required',
+      'FIREBASE_PROJECT_ID environment variable is not specified and it is required',
   }),
 });
