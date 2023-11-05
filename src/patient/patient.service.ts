@@ -4,6 +4,7 @@ import { FirebaseService } from 'src/auth/services/firebase.service';
 import { LoggedUser } from 'src/common/interfaces/logged-user.interface';
 
 import { CreatePatientDto } from './dto/create-patient.dto';
+import { Patient } from './interfaces/patient';
 
 @Injectable()
 export class PatientService {
@@ -34,5 +35,15 @@ export class PatientService {
       notes: createPatientDto.notes || null,
       userId: user.uid,
     });
+  }
+
+  async findAll(): Promise<Patient[]> {
+    const firestore = this.firebaseService.getFireStore();
+    const patients = await firestore.collection('patients').get();
+
+    return patients.docs.map((patient) => ({
+      id: patient.id,
+      ...patient.data(),
+    })) as Patient[];
   }
 }
