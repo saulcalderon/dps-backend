@@ -1,4 +1,11 @@
-import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseGuards,
+  Request,
+  Get,
+} from '@nestjs/common';
 import { FirebaseAuthGuard } from 'src/auth/guards/firebase.guard';
 
 import { PatientService } from './patient.service';
@@ -12,5 +19,11 @@ export class PatientController {
   @Post()
   create(@Request() req: any, @Body() createPatientDto: CreatePatientDto) {
     return this.patientService.create(req.user, createPatientDto);
+  }
+
+  @UseGuards(FirebaseAuthGuard)
+  @Get()
+  findAll() {
+    return this.patientService.findAll();
   }
 }
