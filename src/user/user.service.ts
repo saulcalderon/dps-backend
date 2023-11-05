@@ -31,25 +31,4 @@ export class UserService {
       specialization: createUserDto.specialization,
     });
   }
-
-  // async findAll() {
-  //   const firestore = this.firebaseService.getFireStore();
-  //   const users = await firestore.collection('users').get();
-  //   users.forEach((user) => {
-  //     console.log(user.data());
-  //   });
-  //   return `This action returns all user`;
-  // }
-
-  // findOne(id: number) {
-  //   return `This action returns a #${id} user`;
-  // }
-
-  // update(id: number, updateUserDto: UpdateUserDto) {
-  //   return `This action updates a #${id} user`;
-  // }
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} user`;
-  // }
 }
