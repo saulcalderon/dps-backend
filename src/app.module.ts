@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { validationSchema, generalConfig } from './config/env';
 import { UserModule } from './user/user.module';
 import { PatientModule } from './patient/patient.module';
+import { AppointmentModule } from './appointment/appointment.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { PatientModule } from './patient/patient.module';
     }),
     UserModule,
     PatientModule,
+    AppointmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
