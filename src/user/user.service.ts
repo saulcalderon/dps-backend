@@ -31,4 +31,10 @@ export class UserService {
       specialization: createUserDto.specialization,
     });
   }
+
+  async getMe(user: any): Promise<any> {
+    const firestore = this.firebaseService.getFireStore();
+    const userDoc = await firestore.collection('users').doc(user.uid).get();
+    return userDoc.data();
+  }
 }
